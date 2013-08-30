@@ -13,12 +13,14 @@ I can flip through gif files generated from their programs.
 
 Type `python snapshot -h` for exact instructions.
 
-Example usage `python snapshot.py example/example.py example/animation.gif -s 500` creates a gif file 
-at `example/animation.gif` from example.py. It takes a snapshot every 500 ms.
+Let's take a picture of a turtle program which draws two sine graphs.
+
+`python snapshot.py example/sine.py example/sine.gif -s 500` creates a gif file 
+at `example/sine.gif` from `sine.py` by taking a snapshot every 500 ms.
 
 Resulting gif:
 
-<img src="https://raw.github.com/macobo/TurtleSnap/master/example/animation.gif"></img>
+<img src="https://raw.github.com/macobo/TurtleSnap/master/example/sine.gif"></img>
 
 ## Requirements
 It requires that both ImageMagick and tkinter (needed for the turtle module) are installed.
