@@ -1,4 +1,3 @@
-import importlib
 import turtle
 import os
 import time
@@ -12,7 +11,7 @@ def take_picture(canvas, filename):
     canvas.postscript(file=filename)
 
 def execute_file(file):
-    exec(file.read())
+    exec(file.read(), {})
 
 class Counter():
     def __init__(self):
@@ -43,7 +42,7 @@ def make_turtle_gif(user_program, output_file, snapshot_delay, frame_delay):
     # start the users program
     execute_file(user_program)
 
-    print("Creating gif", output_file)
+    print("Creating gif", output_file, repr(root_prefix))
     subprocess.call(
         [CREATE_GIF_SH, root_prefix, output_file, str(frame_delay)])
 
