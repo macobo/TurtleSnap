@@ -11,7 +11,7 @@ I can flip through gif files generated from their programs.
 
 ## Usage
 
-Type `python snapshot -h` for exact instructions.
+Type `python snapshot.py -h` for explanation of flags.
 
 Let's take a picture of a turtle program which draws two sine graphs.
 
