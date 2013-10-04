@@ -36,7 +36,7 @@ def make_turtle_gif(user_program, output_file, snapshot_delay, frame_delay):
     # do a last picture when we're done
     counter = Counter()
     turtle.exitonclick = lambda: counter.take_picture(root_prefix)
-
+    turtle.setup(1920, 1080)
     root = turtle.getcanvas()._root()
     root.after(snapshot_delay, tick)
     # start the users program
