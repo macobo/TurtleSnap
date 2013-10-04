@@ -14,6 +14,7 @@ convert -delay 20 \
         +antialias \
         $FILE_PREFIX \
         -crop $CROPSIZE! \
+        -loop 2 \
         +repage \
         $OUT_FILE_NAME
 

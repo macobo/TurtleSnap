@@ -11,7 +11,7 @@ def take_picture(canvas, filename):
     canvas.postscript(file=filename)
 
 def execute_file(file):
-    exec(file.read(), {})
+    exec(file.read() + "\n", {})
 
 class Counter():
     def __init__(self):
@@ -42,6 +42,7 @@ def make_turtle_gif(user_program, output_file, snapshot_delay, frame_delay):
     # start the users program
     execute_file(user_program)
 
+    counter.take_picture(root_prefix)
     print("Creating gif", output_file, repr(root_prefix))
     subprocess.call(
         [CREATE_GIF_SH, root_prefix, output_file, str(frame_delay)])
