@@ -11,7 +11,7 @@ def take_picture(canvas, filename):
     canvas.postscript(file=filename)
 
 def execute_file(file):
-    exec(file.read() + "\n", {})
+    exec(file.read() + "\nimport turtle\nturtle.exitonclick()", {})
 
 class Counter():
     def __init__(self):
@@ -30,12 +30,18 @@ def make_turtle_gif(user_program, output_file, snapshot_delay, frame_delay):
         counter.take_picture(root_prefix)
         root.after(snapshot_delay, tick)
 
+    exited = False
+    def exitonclick():
+        if exited: return
+        exited = True
+        counter.take_picture(root_prefix)
+
     # prefix for temporary files
     root_prefix = ".temp_shot-%s-%03d-" % \
             (time.strftime("%Y%m%d%H%M%S"), random.randrange(1000))
     # do a last picture when we're done
     counter = Counter()
-    turtle.exitonclick = lambda: counter.take_picture(root_prefix)
+    turtle.exitonclick = exitonclick
     turtle.setup(1920, 1080)
     root = turtle.getcanvas()._root()
     root.after(snapshot_delay, tick)
