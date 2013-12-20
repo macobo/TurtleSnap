@@ -30,10 +30,8 @@ def make_turtle_gif(user_program, output_file, snapshot_delay, frame_delay):
         counter.take_picture(root_prefix)
         root.after(snapshot_delay, tick)
 
-    exited = False
     def exitonclick():
-        if exited: return
-        exited = True
+        turtle.exitonclick = lambda *a, **kw: None
         counter.take_picture(root_prefix)
 
     # prefix for temporary files
